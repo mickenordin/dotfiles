@@ -263,8 +263,8 @@ mode $power_mode {
 }
 
 # Manual autostart
-exec stterm
-for_window [class="stterm"] move to workspace 1
+exec foot
+for_window [class="foot"] move to workspace 1
 exec firefox-esr
 for_window [class="Firefox"] move to workspace 2
 exec foot --title Spotify ncspot
@@ -272,6 +272,8 @@ for_window [title="Spotify"] move to workspace 3
 exec mount ~/nextcloud/
 exec keepassxc
 for_window [class="KeePassXC"] move to workspace 4
+exec geary
+for_window [title="Geary"] move to workspace 5
 
 # Autostart stuff here
 exec ~/.config/sway/bin/refresh_autostart.sh
