@@ -117,22 +117,22 @@ input * xkb_layout "se"
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace number 1:sh
-    bindsym $mod+2 workspace number 2:www
-    bindsym $mod+3 workspace number 3:music
-    bindsym $mod+4 workspace number 4:passwd
-    bindsym $mod+5 workspace number 5:email
+    bindsym $mod+1 workspace number 1:
+    bindsym $mod+2 workspace number 2:
+    bindsym $mod+3 workspace number 3:
+    bindsym $mod+4 workspace number 4:
+    bindsym $mod+5 workspace number 5:
     bindsym $mod+6 workspace number 6
     bindsym $mod+7 workspace number 7
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1:sh
-    bindsym $mod+Shift+2 move container to workspace number 2:www
-    bindsym $mod+Shift+3 move container to workspace number 3:music
-    bindsym $mod+Shift+4 move container to workspace number 4:passwd
-    bindsym $mod+Shift+5 move container to workspace number 5:email
+    bindsym $mod+Shift+1 move container to workspace number 1:
+    bindsym $mod+Shift+2 move container to workspace number 2:
+    bindsym $mod+Shift+3 move container to workspace number 3:
+    bindsym $mod+Shift+4 move container to workspace number 4:
+    bindsym $mod+Shift+5 move container to workspace number 5:
     bindsym $mod+Shift+6 move container to workspace number 6
     bindsym $mod+Shift+7 move container to workspace number 7
     bindsym $mod+Shift+8 move container to workspace number 8
@@ -264,18 +264,18 @@ mode $power_mode {
 
 # Manual autostart
 exec foot
-for_window [class="foot"] move to workspace 1:sh
+for_window [class="foot"] move to workspace 1:
 exec firefox-esr
-for_window [class="Firefox"] move to workspace 2:www
+for_window [class="Firefox"] move to workspace 2:
 exec foot --title Spotify ncspot
 exec pavucontrol
-for_window [title="Spotify"] move to workspace 3:music
-for_window [title="Volume Control"] move to workspace 3:music
+for_window [title="Spotify"] move to workspace 3:
+for_window [title="Volume Control"] move to workspace 3:
 exec mount ~/nextcloud/
 exec keepassxc
-for_window [class="KeePassXC"] move to workspace 4:passwd
+for_window [class="KeePassXC"] move to workspace 4:
 exec geary
-for_window [title="Geary"] move to workspace 5:email
+for_window [title="Geary"] move to workspace 5:
 
 # Autostart stuff here
 exec ~/.config/sway/bin/refresh_autostart.sh
