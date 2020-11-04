@@ -138,7 +138,7 @@ export NO_AT_BRIDGE=1' | sudo tee ${WAYLAND_ENABLE}
 sudo chmod +x ${SWAYRUN} ${WAYLAND_ENABLE}
 
 # enable greetd
-systemctl enable greetd
+sudo systemctl enable greetd
 
 #ncspot
 cd ~/sources
