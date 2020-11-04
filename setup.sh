@@ -19,6 +19,7 @@ sudo apt install \
 	firefox-esr \
 	geary \
 	git \
+	jq \
 	keepassxc \
 	libdbus-1-dev \
 	libncursesw5-dev \
@@ -65,6 +66,11 @@ else
 	echo /etc/fstab allready configured
 fi
 
+# Fix nm-tray icon
+nm=$(grep QT_QPA_PLATFORMTHEME /etc/security/pam_env.conf)
+if [[ "x${nm}" == "x" ]]; then
+	echo 'QT_QPA_PLATFORMTHEME DEFAULT=qt5ct' | sudo tee -a /etc/security/pam_env.conf
+fi
 
 # Install software from sources
 mkdir -p ~/sources
@@ -150,6 +156,8 @@ sudo cp target/release/ncspot /usr/local/bin/
 # dotfiles
 cd ${WORKDIR}
 rsync -a dotfiles/ ~/
+
+
 
 echo "Follow this instruction if gnome-keyring gives you trouble: https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME"
 echo "Rebooting in 5 seconds"

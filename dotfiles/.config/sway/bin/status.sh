@@ -5,7 +5,6 @@
 
 hostname=$(hostname --fqdn)
 ip=$(hostname -I)
-
 # Produces "21 days", for example
 uptime_formatted=$(uptime | cut -d ',' -f1  | cut -d ' ' -f4,5)
 
@@ -18,7 +17,13 @@ linux_version=$(uname -r | cut -d '-' -f1)
 # Returns the battery status: "Full", "Discharging", or "Charging".
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
 battery_percent=$(cat /sys/class/power_supply/BAT0/capacity)
+bicon="⚡"
+if [[ "${battery_status}" == "Full" ]]; then
+	bicon=""
+elif [[ "${battery_status}" == "Discharging" ]]; then
+	bicon=""
+fi
 
 # Emojis and characters for the status bar
-echo ${hostname} ${uptime_formatted} ↑ ${linux_version}  ${battery_percent}% ${battery_status} ⚡ ${date_formatted}  ${ip} 
+echo ${hostname}: ${uptime_formatted} ↑ ${linux_version}  ${battery_percent}% ${battery_status} ${bicon} ${date_formatted}  ${ip} 
 
