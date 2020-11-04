@@ -151,4 +151,7 @@ sudo cp target/release/ncspot /usr/local/bin/
 cd ${WORKDIR}
 rsync -a dotfiles/ ~/
 
+echo "Follow this instruction if gnome-keyring gives you trouble: https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME"
+echo "Rebooting in 5 seconds"
+sleep 5s
 sudo reboot
