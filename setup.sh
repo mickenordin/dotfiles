@@ -17,6 +17,7 @@ sudo apt install \
 	cargo \
 	davfs2 \
 	firefox-esr \
+	geary \
 	git \
 	keepassxc \
 	libdbus-1-dev \
