@@ -266,7 +266,7 @@ bindsym $mod+Shift+q      mode $power_mode
 mode $power_mode {
     bindsym p         exec systemctl poweroff
     bindsym r         exec systemctl reboot 
-    bindsym l         exec swaylock -i ~/Pictures/wallpaper-04.png , mode "default"
+    bindsym l         exec $lock, mode "default"
     bindsym q         exec --no-startup-id i3-msg exit, mode "default"
     bindsym h         exec systemctl hibernate 
     bindsym s         exec pm-suspend
