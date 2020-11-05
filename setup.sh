@@ -42,12 +42,11 @@ sudo apt install \
 	nm-tray \
 	pavucontrol \
 	ranger \
+	ripgrep \
 	rsync \
 	scdoc \
-	stterm \
 	sway \
 	vim \
-	waybar \
 	wayland-protocols \
 	webext-keepassxc-browser \
 	wl-clipboard  \
@@ -156,6 +155,7 @@ sudo chmod +x ${SWAYRUN} ${WAYLAND_ENABLE}
 # enable greetd
 sudo systemctl enable greetd
 
+# Swaylock-effects
 cd ~/sources
 git clone https://github.com/mortie/swaylock-effects.git
 cd swaylock-effects
@@ -163,6 +163,11 @@ patch -p1 < ../effects.c.patch
 meson build
 ninja -C build
 sudo ninja -C build install
+
+# Doom emacs
+cd ~/sources
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
 
 #ncspot
 cd ~/sources
