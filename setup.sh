@@ -14,31 +14,41 @@ WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
 
 # Install software from repo
 sudo apt install \
+	build-essential \
 	cargo \
 	davfs2 \
+	emacs \
 	firefox-esr \
 	geary \
 	git \
 	jq \
 	keepassxc \
+	libcairo-dev  \
 	libdbus-1-dev \
 	libncursesw5-dev \
+	libpam-dev \
 	libpam0g-dev \
 	libpulse-dev \
 	libssl-dev \
+	libwayland-dev \
 	libxcb-render0-dev \
 	libxcb-shape0-dev \
 	libxcb-xfixes0-dev \
 	libxcb1-dev \
+	libxkbcommon-dev \
 	light \
+	meson \
+	ninja-build \
 	nm-tray \
 	pavucontrol \
 	ranger \
 	rsync \
+	scdoc \
 	stterm \
 	sway \
 	vim \
 	waybar \
+	wayland-protocols \
 	webext-keepassxc-browser \
 	wl-clipboard  \
 	wlr-randr
@@ -145,6 +155,14 @@ sudo chmod +x ${SWAYRUN} ${WAYLAND_ENABLE}
 
 # enable greetd
 sudo systemctl enable greetd
+
+cd ~/sources
+git clone https://github.com/mortie/swaylock-effects.git
+cd swaylock-effects
+patch -p1 < ../effects.c.patch
+meson build
+ninja -C build
+sudo ninja -C build install
 
 #ncspot
 cd ~/sources
