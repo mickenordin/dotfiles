@@ -20,7 +20,6 @@ sudo apt install \
 	davfs2 \
 	firefox-esr \
 	fish \
-	geary \
 	git \
 	jq \
 	keepassxc \
@@ -50,6 +49,7 @@ sudo apt install \
 	rsync \
 	scdoc \
 	sway \
+	thunderbird \
 	wayland-protocols \
 	webext-keepassxc-browser \
 	wl-clipboard  \
