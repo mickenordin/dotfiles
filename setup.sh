@@ -178,13 +178,14 @@ cd ncspot
 cargo build --release
 sudo cp target/release/ncspot /usr/local/bin/
 
-# Oh my fish
-curl -L https://get.oh-my.fish | fish
-omf install agnoster
-
 # dotfiles
 cd ${WORKDIR}
 rsync -a dotfiles/ ~/
+
+# Fish and oh my fish
+curl -L https://get.oh-my.fish | fish
+omf install agnoster
+chsh -s (which fish)
 
 echo "Follow this instruction if gnome-keyring gives you trouble: https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME"
 echo "Rebooting in 5 seconds"
