@@ -18,7 +18,6 @@ sudo apt install \
 	cargo \
 	curl \
 	davfs2 \
-	emacs \
 	firefox-esr \
 	fish \
 	geary \
@@ -40,6 +39,7 @@ sudo apt install \
 	libxkbcommon-dev \
 	light \
 	meson \
+	neovim \
 	ninja-build \
 	nm-tray \
 	pavucontrol \
@@ -48,7 +48,6 @@ sudo apt install \
 	rsync \
 	scdoc \
 	sway \
-	vim \
 	wayland-protocols \
 	webext-keepassxc-browser \
 	wl-clipboard  \
@@ -165,11 +164,6 @@ patch -p1 < ../effects.c.patch
 meson build
 ninja -C build
 sudo ninja -C build install
-
-# Doom emacs
-cd ~/sources
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
 
 #ncspot
 cd ~/sources
