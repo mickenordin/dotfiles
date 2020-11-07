@@ -43,6 +43,7 @@ sudo apt install \
 	ninja-build \
 	nm-tray \
 	pavucontrol \
+	qutebrowser \
 	ranger \
 	ripgrep \
 	rsync \
