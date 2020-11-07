@@ -39,6 +39,7 @@ sudo apt install \
 	libxkbcommon-dev \
 	light \
 	meson \
+	mpv \
 	neovim \
 	ninja-build \
 	nm-tray \
