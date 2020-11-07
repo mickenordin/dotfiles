@@ -16,9 +16,11 @@ WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
 sudo apt install \
 	build-essential \
 	cargo \
+	curl \
 	davfs2 \
 	emacs \
 	firefox-esr \
+	fish \
 	geary \
 	git \
 	jq \
@@ -176,11 +178,13 @@ cd ncspot
 cargo build --release
 sudo cp target/release/ncspot /usr/local/bin/
 
+# Oh my fish
+curl -L https://get.oh-my.fish | fish
+omf install agnoster
+
 # dotfiles
 cd ${WORKDIR}
 rsync -a dotfiles/ ~/
-
-
 
 echo "Follow this instruction if gnome-keyring gives you trouble: https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME"
 echo "Rebooting in 5 seconds"
