@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # You must have sudo before running this script
-# su -
-# apt install sudo
-# usermod -a -G sudo <your username>
+su - -c "apt install sudo"
+su - -c "usermod -a -G sudo ${USER}"
 
 # Set up various variables 
 WORKDIR="$(pwd)"
