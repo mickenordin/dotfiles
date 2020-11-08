@@ -21,6 +21,7 @@ sudo apt install \
 	firefox-esr \
 	fish \
 	git \
+	j4-dmenu-desktop \
 	jq \
 	keepassxc \
 	libcairo-dev  \
