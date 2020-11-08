@@ -51,6 +51,7 @@ sudo apt install \
 	scdoc \
 	sway \
 	thunderbird \
+	unzip \
 	wayland-protocols \
 	webext-keepassxc-browser \
 	wl-clipboard  \
@@ -182,6 +183,15 @@ rsync -a dotfiles/ ~/
 # Background
 cd ~/Pictures
 wget https://www.publicdomainpictures.net/pictures/230000/velka/night-landscape-15010066769pV.jpg
+
+# VictoMono font
+cd /tmp
+mkdir fonts
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/VictorMono.zip
+unzip VictorMono.zip
+sudo *tf /usr/local/share/fonts
+cd ..
+rm -rf fonts
 
 # Fish and oh my fish
 curl -L https://get.oh-my.fish | fish

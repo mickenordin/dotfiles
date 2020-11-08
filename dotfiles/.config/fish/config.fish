@@ -1,1 +1,1 @@
-neofetch
+neofetch --title_fqdn on
