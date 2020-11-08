@@ -164,7 +164,6 @@ sudo systemctl enable greetd
 cd ~/sources
 git clone https://github.com/mortie/swaylock-effects.git
 cd swaylock-effects
-patch -p1 < ../effects.c.patch
 meson build
 ninja -C build
 sudo ninja -C build install
