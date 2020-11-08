@@ -179,6 +179,10 @@ sudo cp target/release/ncspot /usr/local/bin/
 cd ${WORKDIR}
 rsync -a dotfiles/ ~/
 
+# Background
+cd ~/Pictures
+wget https://www.publicdomainpictures.net/pictures/230000/velka/night-landscape-15010066769pV.jpg
+
 # Fish and oh my fish
 curl -L https://get.oh-my.fish | fish
 omf install agnoster
