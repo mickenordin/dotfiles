@@ -18,6 +18,7 @@ sudo apt install \
 	cargo \
 	curl \
 	davfs2 \
+	exa \
 	firefox-esr \
 	fish \
 	git \
