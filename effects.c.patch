@@ -1,9 +1,0 @@
-diff --git a/effects.c b/effects.c
-index e63f722..89b28a4 100644
---- a/effects.c
-+++ b/effects.c
-@@ -15,6 +15,7 @@
- #include <time.h>
- #include "effects.h"
- #include "log.h"
-+#include "stdio.h"

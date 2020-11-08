@@ -146,7 +146,7 @@ source /usr/local/bin/wayland_enablement.sh
 systemd-cat --identifier=sway sway $@
 ' | sudo tee ${SWAYRUN}
 
-sudo echo '#!/bin/sh
+echo '#!/bin/sh
 export MOZ_ENABLE_WAYLAND=1
 export CLUTTER_BACKEND=wayland
 export QT_QPA_PLATFORM=wayland-egl
@@ -165,7 +165,6 @@ sudo systemctl enable greetd
 cd ~/sources
 git clone https://github.com/mortie/swaylock-effects.git
 cd swaylock-effects
-patch -p1 < ../effects.c.patch
 meson build
 ninja -C build
 sudo ninja -C build install
@@ -190,7 +189,7 @@ cd /tmp
 mkdir fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/VictorMono.zip
 unzip VictorMono.zip
-sudo *tf /usr/local/share/fonts
+sudo cp *tf /usr/local/share/fonts
 cd ..
 rm -rf fonts
 
