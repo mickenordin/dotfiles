@@ -31,7 +31,7 @@ exec swayidle -w \
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-set $menu wofi | xargs swaymsg exec --
+set $menu j4-dmenu-desktop --dmenu 'wofi -d -G' | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
