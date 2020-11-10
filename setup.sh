@@ -23,7 +23,6 @@ sudo apt install \
 	git \
 	j4-dmenu-desktop \
 	jq \
-	keepassxc \
 	libcairo-dev  \
 	libdbus-1-dev \
 	libncursesw5-dev \
@@ -43,6 +42,7 @@ sudo apt install \
 	neovim \
 	ninja-build \
 	nm-tray \
+	pass \
 	pavucontrol \
 	qutebrowser \
 	ranger \
