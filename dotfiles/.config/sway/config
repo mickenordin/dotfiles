@@ -28,7 +28,7 @@ exec swayidle timeout 570 'swaylock -f --screenshots --clock --indicator --indic
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-set $menu j4-dmenu-desktop --dmenu 'wofi -d -G -I' | xargs swaymsg exec --
+set $menu SHELL=/bin/sh j4-dmenu-desktop --dmenu 'wofi -d -G -I' | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
@@ -131,8 +131,8 @@ input * xkb_layout "se"
     bindsym $mod+1 workspace number 1:
     bindsym $mod+2 workspace number 2:爵
     bindsym $mod+3 workspace number 3:
-    bindsym $mod+4 workspace number 4:
-    bindsym $mod+5 workspace number 5:
+    bindsym $mod+4 workspace number 4:
+    bindsym $mod+5 workspace number 5:
     bindsym $mod+6 workspace number 6
     bindsym $mod+7 workspace number 7
     bindsym $mod+8 workspace number 8
@@ -142,8 +142,8 @@ input * xkb_layout "se"
     bindsym $mod+Shift+1 move container to workspace number 1:
     bindsym $mod+Shift+2 move container to workspace number 2:爵
     bindsym $mod+Shift+3 move container to workspace number 3:
-    bindsym $mod+Shift+4 move container to workspace number 4:
-    bindsym $mod+Shift+5 move container to workspace number 5:
+    bindsym $mod+Shift+4 move container to workspace number 4:
+    bindsym $mod+Shift+5 move container to workspace number 5:
     bindsym $mod+Shift+6 move container to workspace number 6
     bindsym $mod+Shift+7 move container to workspace number 7
     bindsym $mod+Shift+8 move container to workspace number 8
@@ -272,22 +272,19 @@ input * xkb_layout "se"
 	    bindsym Escape    mode "default"
 	}
 
-	# Manual autostart
+	# Manual autostart non graphical
+	exec mount ~/nextcloud/
+	# Manual autostart graphical
 	exec foot
 	for_window [class="foot"] move to workspace 1:
 	exec qutebrowser
 	for_window [class="qutebrowser"] move to workspace 2:爵
 	exec foot --title ncspotterm ncspot
-	exec pavucontrol
 	for_window [title="ncspotterm"] move to workspace 3:
-	for_window [title="Volume Control"] move to workspace 3:
-	exec mount ~/nextcloud/
-	exec keepassxc
-	for_window [class="KeePassXC"] move to workspace 4:
 	exec thunderbird
-	for_window [title="Mozilla Thunderbird"] move to workspace 5:
+	for_window [title="Mozilla Thunderbird"] move to workspace 4:
 
-	# Autostart stuff here
+	# Autostart from autostart stuff here
 	exec ~/.config/sway/bin/refresh_autostart.sh
 	include /etc/sway/config.d/*
 	include ~/.config/sway/config.d/*
