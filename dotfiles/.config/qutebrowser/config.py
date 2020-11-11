@@ -121,3 +121,14 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # Custom keybindings for normal mode
 config.bind('M', 'hint links spawn mpv {hint-url}')
+
+# Custom aliases
+c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save', 'o': 'open', 'O': 'open -t', 'h': 'history'}
+
+# Setting dark mode
+config.set('colors.webpage.darkmode.enabled', True)
+
+# Change search engine
+config.set('url.searchengines', {'DEFAULT': 'https://startpage.com/sp/search?q={}'})
+
+config.set('url.start_pages', 'https://startpage.com')
