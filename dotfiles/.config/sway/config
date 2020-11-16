@@ -274,6 +274,7 @@ input * xkb_layout "se"
 
 	# Manual autostart non graphical
 	exec mount ~/nextcloud/
+	exec autotiling
 	# Manual autostart graphical
 	exec foot
 	for_window [class="foot"] move to workspace 1:

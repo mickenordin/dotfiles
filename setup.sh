@@ -44,6 +44,7 @@ sudo apt install \
 	nm-tray \
 	pass \
 	pavucontrol \
+	python3-pip \
 	qutebrowser \
 	ranger \
 	ripgrep \
@@ -167,6 +168,9 @@ cd swaylock-effects
 meson build
 ninja -C build
 sudo ninja -C build install
+
+# Autotiling
+sudo -H pip install autotiling
 
 #ncspot
 cd ~/sources
