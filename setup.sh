@@ -48,6 +48,7 @@ sudo apt install \
 	pavucontrol \
 	poppler-utils \
 	python3-pip \
+    python3-tldextract \
 	qutebrowser \
 	ripgrep \
 	rsync \

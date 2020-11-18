@@ -119,6 +119,12 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
+# Pass integration
+config.bind('<z><l>', 'spawn --userscript qute-pass')
+config.bind('<z><u><l>', 'spawn --userscript qute-pass --username-only')
+config.bind('<z><p><l>', 'spawn --userscript qute-pass --password-only')
+config.bind('<z><o><l>', 'spawn --userscript qute-pass --otp-only')
+
 # Custom keybindings for normal mode
 config.bind('M', 'hint links spawn mpv {hint-url}')
 
@@ -131,4 +137,5 @@ config.set('colors.webpage.darkmode.enabled', True)
 # Change search engine
 config.set('url.searchengines', {'DEFAULT': 'https://startpage.com/sp/search?q={}'})
 
+c.url.default_page = 'https://startpage.com'
 config.set('url.start_pages', 'https://startpage.com')
