@@ -35,7 +35,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/night-landscape-15010066769pV.jpg fill
+output * bg /usr/local/share/backgrounds/night-landscape.jpg fill
 #
 # Example configuration:
 #
