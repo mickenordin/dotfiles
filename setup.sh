@@ -40,21 +40,19 @@ sudo apt install \
 	meson \
 	mpv \
 	neovim \
+	neomutt \
 	ninja-build \
 	nm-tray \
 	pass \
 	pavucontrol \
 	python3-pip \
 	qutebrowser \
-	ranger \
 	ripgrep \
 	rsync \
 	scdoc \
 	sway \
-	thunderbird \
 	unzip \
 	wayland-protocols \
-	webext-keepassxc-browser \
 	wl-clipboard  \
 	wlr-randr
 # Fix NextCloud stuff
@@ -179,13 +177,22 @@ cd ncspot
 cargo build --release
 sudo cp target/release/ncspot /usr/local/bin/
 
+# Card/Cal
+sudo pip3 install vdirsyncer khal khard
+vdirsyncer discover contacts
+vdirsyncer discover calendar
+vdirsyncer sync
+
+# Firefox pass host app
+curl -sSL github.com/passff/passff-host/releases/latest/download/install_host_app.sh | bash -s -- firefox
+
 # dotfiles
 cd ${WORKDIR}
 rsync -a dotfiles/ ~/
 
 # Background
-cd ~/Pictures
-wget https://www.publicdomainpictures.net/pictures/230000/velka/night-landscape-15010066769pV.jpg
+sudo mkdir -p /usr/local/share/backgrounds
+sudo wget https://www.publicdomainpictures.net/pictures/230000/velka/night-landscape-15010066769pV.jpg -O /usr/local/share/backgrounds/night-landscape.jpg
 
 # VictoMono font
 cd /tmp
@@ -200,6 +207,8 @@ rm -rf fonts
 curl -L https://get.oh-my.fish | fish
 omf install agnoster
 chsh -s (which fish)
+
+echo "Make sure you have you gpg-key imported and trusted"
 
 echo "Follow this instruction if gnome-keyring gives you trouble: https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME"
 echo "Rebooting in 5 seconds"
