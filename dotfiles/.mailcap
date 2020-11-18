@@ -1,0 +1,5 @@
+text/plain; cat %s; copiousoutput
+text/html; elinks -dump ; copiousoutput;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; pandoc --from docx --to markdown %s; copiousoutput
+application/vnd.oasis.opendocument.text; pandoc --from odt --to markdown %s; copiousoutput
+application/pdf; pdftotext -layout %s -; copiousoutput;

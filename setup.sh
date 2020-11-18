@@ -45,6 +45,8 @@ sudo apt install \
 	nm-tray \
 	pass \
 	pavucontrol \
+	pandoc \
+	poppler-utils \
 	python3-pip \
 	qutebrowser \
 	ripgrep \
