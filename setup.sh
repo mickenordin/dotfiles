@@ -39,13 +39,13 @@ sudo apt install \
 	light \
 	meson \
 	mpv \
-	neovim \
 	neomutt \
+	neovim \
 	ninja-build \
 	nm-tray \
+	pandoc \
 	pass \
 	pavucontrol \
-	pandoc \
 	poppler-utils \
 	python3-pip \
 	qutebrowser \
@@ -56,6 +56,7 @@ sudo apt install \
 	unzip \
 	wayland-protocols \
 	wl-clipboard  \
+    libgtkmm-3.0-dev \
 	wlr-randr
 # Fix NextCloud stuff
 sudo usermod -a -G davfs2 ${USER}
@@ -168,6 +169,14 @@ cd swaylock-effects
 meson build
 ninja -C build
 sudo ninja -C build install
+
+# Grid menu
+git clone https://github.com/nwg-piotr/nwg-launchers.git
+cd nwg-launchers
+meson builddir -Dbuildtype=release
+ninja -C builddir
+sudo ninja -C builddir install
+#sudo ninja -C builddir uninstall
 
 # Autotiling
 sudo -H pip install autotiling
