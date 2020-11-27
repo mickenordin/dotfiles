@@ -1,5 +1,6 @@
 alias ls='exa'
 alias caldav='vdirsyncer sync && khal interactive && vdirsyncer sync && true'
+set PATH $PATH ~/.local/bin
 set TERM xterm-256color
 function fish_greeting
   status --is-login

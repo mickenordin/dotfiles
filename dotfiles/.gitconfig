@@ -1,0 +1,10 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Micke Nordin
+	email = mik@elnord.in
+[pull]
+	ff = only
+[credential "https://github.com"]
+	username = mickenordin
+	helper = /home/micke/.local/bin/github-askpass
