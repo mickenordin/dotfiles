@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-/usr/bin/pass show github.com/micke-apinyckel
+/usr/bin/pass show github.com/micke-apinyckel | head -1
