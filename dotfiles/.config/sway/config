@@ -40,7 +40,8 @@ output * bg /usr/local/share/backgrounds/night-landscape.jpg fill
 # Example configuration:
 #
 output eDP-1 resolution 1920x1080 position 0,0
-output HDMI-A-1 resolution 2048x1080 position 1920,0
+output HDMI-A-1 resolution 1920x1080 position 1920,0
+output DP-1 resolution 2540x1460 position 3840,0
 
 # Gaps
 smart_gaps on
@@ -82,7 +83,11 @@ bindsym $mod+Shift+i	gaps inner current minus 5
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-input * xkb_layout "se"
+# Default is swedish with us variant
+input * xkb_layout "se(us)"
+# However, when on swedish keyboard you can switch like below
+bindsym $mod+Shift+s exec swaymsg "input * xkb_layout se"
+bindsym $mod+Shift+u exec swaymsg "input * xkb_layout se(us)"
 
 ### Key bindings
 #
@@ -138,8 +143,8 @@ bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
-bindsym $mod+Control+Right move workspace to output HDMI-A-1
-bindsym $mod+Control+Left move workspace to output eDP-1
+#bindsym $mod+Control+Right move workspace to output HDMI-A-1
+#bindsym $mod+Control+Left move workspace to output eDP-1
 # Switch to workspace
 bindsym $mod+1 workspace number 1:
 bindsym $mod+2 workspace number 2:爵
@@ -291,6 +296,7 @@ mode $power_mode {
 exec mount ~/nextcloud/
 exec autotiling
 exec appimagelauncherd
+exec nm-tray
 # Manual autostart graphical
 exec foot
 for_window [class="foot"] move to workspace 1:
