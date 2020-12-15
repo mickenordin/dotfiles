@@ -18,6 +18,7 @@ sudo apt install \
     cheese \
     cmake \
     curl \
+    elinks \
     exa \
     firefox-esr \
     fish \
