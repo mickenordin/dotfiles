@@ -186,6 +186,10 @@ python3 -m pip install --user --upgrade setuptools wheel
 python3 setup.py sdist bdist_wheel
 sudo python3 setup.py install
 
+# dotfiles
+cd ${WORKDIR}
+rsync -a dotfiles/ ~/
+
 # Card/Cal
 sudo pip3 install khal khard
 vdirsyncer discover contacts
@@ -194,10 +198,6 @@ vdirsyncer sync
 
 # Firefox pass host app
 curl -sSL github.com/passff/passff-host/releases/latest/download/install_host_app.sh | bash -s -- firefox
-
-# dotfiles
-cd ${WORKDIR}
-rsync -a dotfiles/ ~/
 
 # Background
 sudo mkdir -p /usr/local/share/backgrounds
