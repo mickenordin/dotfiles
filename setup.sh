@@ -178,8 +178,16 @@ cd ncspot
 cargo build --release
 sudo cp target/release/ncspot /usr/local/bin/
 
+# Vdirsyncer
+cd ~/sources
+git clone https://github.com/pimutils/vdirsyncer
+cd vdirsyncer
+python3 -m pip install --user --upgrade setuptools wheel
+python3 setup.py sdist bdist_wheel
+sudo python3 setup.py install
+
 # Card/Cal
-sudo pip3 install vdirsyncer khal khard
+sudo pip3 install khal khard
 vdirsyncer discover contacts
 vdirsyncer discover calendar
 vdirsyncer sync
