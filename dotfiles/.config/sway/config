@@ -284,7 +284,7 @@ mode $power_mode {
     bindsym p         exec systemctl poweroff
     bindsym r         exec systemctl reboot 
     bindsym l         exec $lock, mode "default"
-    bindsym q         exec --no-startup-id i3-msg exit, mode "default"
+    bindsym q         exec --no-startup-id swaymsg exit, mode "default"
     bindsym h         exec systemctl hibernate 
     bindsym s         exec pm-suspend
   
@@ -293,10 +293,10 @@ mode $power_mode {
 }
 
 # Manual autostart non graphical
-exec mount ~/nextcloud/
-exec autotiling
-exec appimagelauncherd
-exec nm-tray
+exec --no-startup-id autotiling
+exec --no-startup-id appimagelauncherd
+exec --no-startup-id nm-tray
+exec --no-startup-id nextcloud
 # Manual autostart graphical
 exec foot
 for_window [class="foot"] move to workspace 1:
