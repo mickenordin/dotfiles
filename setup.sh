@@ -203,6 +203,11 @@ sudo cp *tf /usr/local/share/fonts
 cd ..
 rm -rf fonts
 
+# Appimage
+wget https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb
+sudo dpkg -i appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb
+sudo apt -f install
+
 # Fish and oh my fish
 curl -L https://get.oh-my.fish | fish
 omf install agnoster
