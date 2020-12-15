@@ -13,80 +13,60 @@ WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
 
 # Install software from repo
 sudo apt install \
-	build-essential \
-	cargo \
-	curl \
-	davfs2 \
-	exa \
-	firefox-esr \
-	fish \
-	git \
-	j4-dmenu-desktop \
-	jq \
-	libcairo-dev  \
-	libdbus-1-dev \
-	libncursesw5-dev \
-	libpam-dev \
-	libpam0g-dev \
-	libpulse-dev \
-	libssl-dev \
-	libwayland-dev \
-	libxcb-render0-dev \
-	libxcb-shape0-dev \
-	libxcb-xfixes0-dev \
-	libxcb1-dev \
-	libxkbcommon-dev \
-	light \
-	meson \
-	mpv \
-	neomutt \
-	neovim \
-	ninja-build \
-	nm-tray \
-	pandoc \
-	pass \
-	pavucontrol \
-	poppler-utils \
-	python3-pip \
-    python3-tldextract \
-	qutebrowser \
-	ripgrep \
-	rsync \
-	scdoc \
-	sway \
-	unzip \
-	wayland-protocols \
-	wl-clipboard  \
+    build-essential \
+    cargo \
+    cheese \
+    cmake \
+    curl \
+    exa \
+    firefox-esr \
+    fish \
+    geany \
+    geany-plugins \
+    git \
+    jq \
+    libcairo-dev  \
+    libdbus-1-dev \
     libgtkmm-3.0-dev \
-	wlr-randr
-# Fix NextCloud stuff
-sudo usermod -a -G davfs2 ${USER}
-mkdir -p ~/nextcloud
-mkdir -p ~/.davfs2
-sudo cp  /etc/davfs2/secrets ~/.davfs2/secrets
-sudo chown ${USER}:${USER} ~/.davfs2/secrets
-chmod 600 ~/.davfs2/secrets
-echo -n "Enter Nextcloud server, e.g. https://example.com: "
-read server
-echo -n "Enter Nextcloud user: "
-read user
-echo -n "Enter Nextcloud password: "
-read -s password
-echo ""
-fullserver="${server}/remote.php/dav/files/${user}/"
-echo "${fullserver} ${user} ${password}" >> ~/.davfs2/secrets
-
-fstab=$(grep ${server} /etc/fstab)
-if [[ "x${fstab}" == "x" ]]; then
-	echo "${fullserver} /home/${USER}/nextcloud davfs user,rw,auto 0 0" | sudo tee -a /etc/fstab
-else
-	echo /etc/fstab allready configured
-fi
-
+    libncursesw5-dev \
+    libpam-dev \
+    libpam0g-dev \
+    libpulse-dev \
+    libssl-dev \
+    libwayland-dev \
+    libxcb-render0-dev \
+    libxcb-shape0-dev \
+    libxcb-xfixes0-dev \
+    libxcb1-dev \
+    libxkbcommon-dev \
+    light \
+    meson \
+    mpv \
+    neomutt \
+    neovim \
+    nextcloud-desktop \
+    ninja-build \
+    nm-tray \
+    pandoc \
+    pass \
+    pavucontrol \
+    poppler-utils \
+    python3-pip \
+    python3-tldextract \
+    qutebrowser \
+    ripgrep \
+    rsync \
+    scdoc \
+    sway \
+    swayidle \
+    unzip \
+    wayland-protocols \
+    wl-clipboard  \
+    wlr-randr
 # Fix nm-tray icon
 nm=$(grep QT_QPA_PLATFORMTHEME /etc/security/pam_env.conf)
 if [[ "x${nm}" == "x" ]]; then
-	echo 'QT_QPA_PLATFORMTHEME DEFAULT=qt5ct' | sudo tee -a /etc/security/pam_env.conf
+    echo 'QT_QPA_PLATFORMTHEME DEFAULT=qt5ct' | sudo tee -a /etc/security/pam_env.conf
 fi
 
 # Install software from sources
@@ -181,6 +161,14 @@ sudo ninja -C builddir install
 
 # Autotiling
 sudo -H pip install autotiling
+
+# j4-dmenu-desktop
+cd ~/sources
+git clone https://github.com/enkore/j4-dmenu-desktop.git
+cd j4-dmenu-desktop
+cmake .
+make
+sudo make install
 
 #ncspot
 cd ~/sources
