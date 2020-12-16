@@ -17,15 +17,16 @@ sudo apt install \
     cargo \
     cheese \
     cmake \
+    cpufrequtils \
     curl \
     elinks \
     exa \
     firefox-esr \
-    fish \
     geany \
     geany-plugins \
     git \
     jq \
+    laptop-mode-tools \
     libcairo-dev  \
     libdbus-1-dev \
     libgtkmm-3.0-dev \
@@ -63,7 +64,8 @@ sudo apt install \
     unzip \
     wayland-protocols \
     wl-clipboard  \
-    wlr-randr
+    wlr-randr \
+    zsh
 # Fix nm-tray icon
 nm=$(grep QT_QPA_PLATFORMTHEME /etc/security/pam_env.conf)
 if [[ "x${nm}" == "x" ]]; then
@@ -217,10 +219,9 @@ wget https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/ap
 sudo dpkg -i appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb
 sudo apt -f install
 
-# Fish and oh my fish
-curl -L https://get.oh-my.fish | fish
-omf install agnoster
-chsh -s (which fish)
+# oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+omz theme use agnoster
 
 echo "Make sure you have you gpg-key imported and trusted"
 
