@@ -13,14 +13,17 @@ WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
 
 # Install software from repo
 sudo apt install \
+    acpi \
+    acpi-support \
     build-essential \
     cargo \
     cheese \
     cmake \
+    cpufreqd \
     cpufrequtils \
     curl \
     elinks \
-    exa \
+    file-roller \
     firefox-esr \
     geany \
     geany-plugins \
@@ -52,6 +55,7 @@ sudo apt install \
     pandoc \
     pass \
     pavucontrol \
+    pcmanfm \
     poppler-utils \
     python3-pip \
     python3-tldextract \
@@ -213,6 +217,10 @@ unzip VictorMono.zip
 sudo cp *tf /usr/local/share/fonts
 cd ..
 rm -rf fonts
+
+#lsd
+wget https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb
+sudo dpkg -i lsd-musl_0.19.0_amd64.deb
 
 # Appimage
 wget https://github.com/TheAssassin/AppImageLauncher/releases/download/v2.2.0/appimagelauncher_2.2.0-travis995.0f91801.bionic_amd64.deb
