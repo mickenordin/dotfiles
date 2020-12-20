@@ -15,6 +15,7 @@ WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
 sudo apt install \
     acpi \
     acpi-support \
+    adwaita-qt \
     build-essential \
     cargo \
     cheese \
@@ -28,6 +29,7 @@ sudo apt install \
     geany \
     geany-plugins \
     git \
+    gnome-themes-extra \
     jq \
     laptop-mode-tools \
     libcairo-dev  \
@@ -45,6 +47,7 @@ sudo apt install \
     libxcb1-dev \
     libxkbcommon-dev \
     light \
+    lxappearance \
     meson \
     mpv \
     neomutt \
@@ -59,12 +62,14 @@ sudo apt install \
     poppler-utils \
     python3-pip \
     python3-tldextract \
+    qt5ct \
     qutebrowser \
     ripgrep \
     rsync \
     scdoc \
     sway \
     swayidle \
+    ukui-polkit \
     unzip \
     wayland-protocols \
     wl-clipboard  \
