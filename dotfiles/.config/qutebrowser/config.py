@@ -139,3 +139,6 @@ config.set('url.searchengines', {'DEFAULT': 'https://startpage.com/sp/search?q={
 
 c.url.default_page = 'https://startpage.com'
 config.set('url.start_pages', 'https://startpage.com')
+
+# Editor
+config.set('editor.command', ['foot', '--title', 'qutebrowsereditor', 'nvim', '{file}', '+{line}'])
