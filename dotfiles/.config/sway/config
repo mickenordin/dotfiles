@@ -209,6 +209,7 @@ for_window [window_type="dialog"] floating enable
 #for_window [window_type="menu"] floating enable
 for_window [title="~nwggrid"] floating enable
 for_window [title="~nwgbar"] floating enable
+for_window [title="~nmtui"] floating enable
 
 #
 # Scratchpad:
@@ -251,20 +252,21 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-  
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-    status_command while ~/.config/sway/bin/status.sh; do sleep 1; done
-  
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+#bar {
+#    position top
+#  
+#    # When the status_command prints a new line to stdout, swaybar updates.
+#    # The default just shows the current date and time.
+#    #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#    status_command while ~/.config/sway/bin/status.sh; do sleep 1; done
+#  
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
+exec --no-startup-id waybar
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/.* index:/{print $3}') +5% # Raise
