@@ -251,6 +251,10 @@ sudo apt -f install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 omz theme use agnoster
 
+# Fish and oh my fish
+curl -L https://get.oh-my.fish | fish
+omf install agnoster
+
 echo "Make sure you have you gpg-key imported and trusted"
 
 echo "Follow this instruction if gnome-keyring gives you trouble: https://wiki.archlinux.org/index.php/GNOME/Keyring#Using_the_keyring_outside_GNOME"
