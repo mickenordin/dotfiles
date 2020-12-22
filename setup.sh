@@ -44,6 +44,7 @@ sudo apt install \
     elinks \
     file-roller \
     firefox-esr \
+    firmware-manager \
     fish \
     geany \
     geany-plugins \
