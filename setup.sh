@@ -13,14 +13,20 @@ WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
 
 # Add linux-libre repo
 wget -O - 'https://jxself.org/gpg.asc' | sudo apt-key add -
-echo 'deb mirror://linux-libre.fsfla.org/pub/linux-libre/freesh/mirrors.txt freesh main
+echo 'deb  https://mirror.linux.pizza/linux-libre/freesh/ freesh main
 ' | sudo tee /etc/apt/sources.list.d/linux-libre.list
 
-# Add repo for tlpnuisudo 
+# Add repo for tlpui 
 wget -O - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x1cc3d16e460a94ee17fe581cea8cacc073c3db2a' | sudo apt-key add -
 echo 'deb http://ppa.launchpad.net/linuxuprising/apps/ubuntu focal main 
 deb-src http://ppa.launchpad.net/linuxuprising/apps/ubuntu focal main
 ' | sudo tee /etc/apt/sources.list.d/linuxuprising-apps.list
+
+# Add system76 repo
+wget -O - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x5d1f3a80254f6afba254fed5acd442d1c8b7748b' | sudo apt-key add -
+echo 'deb http://ppa.launchpad.net/system76-dev/stable/ubuntu focal main 
+deb-src http://ppa.launchpad.net/system76-dev/stable/ubuntu focal main
+' | sudo tee /etc/apt/sources.list.d/system76-dev.list
 
 # Update repos
 sudo apt update
@@ -43,6 +49,7 @@ sudo apt install \
     geany-plugins \
     git \
     gnome-themes-extra \
+    grub-coreboot \
     jq \
     libcairo-dev  \
     libdbus-1-dev \
@@ -82,6 +89,8 @@ sudo apt install \
     scdoc \
     sway \
     swayidle \
+    system76-firmware-daemon \
+    system76-power \
     tlp \
     tlpui \
     ukui-polkit \
