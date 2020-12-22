@@ -30,6 +30,7 @@ sudo apt install \
     elinks \
     file-roller \
     firefox-esr \
+    fish \
     geany \
     geany-plugins \
     git \
