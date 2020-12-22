@@ -87,6 +87,7 @@ sudo apt install \
     qutebrowser \
     ripgrep \
     rsync \
+    seahorse \
     scdoc \
     sway \
     swayidle \
