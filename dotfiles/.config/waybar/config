@@ -2,29 +2,26 @@
      "layer": "top",
      "modules-left": ["sway/workspaces", "sway/mode"],
      "modules-center": ["custom/date","custom/clock"],
-     "modules-right": ["network","battery","custom/nmtui","tray"],
+     "modules-right": ["network","battery","tray"],
      "sway/window": {
           "max-length": 50
      },
      "network": {
           // "interface": "wlp2*", // (Optional) To force the use of this interface
-          "format-wifi": "{essid} ({signalStrength}%) ",
+          "format-wifi": "{essid}: {ipaddr} ({signalStrength}%) ",
           "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
           "format-linked": "{ifname} (No IP) ",
           "format-disconnected": "Disconnected ⚠",
-          "format-alt": "{ifname}: {ipaddr}/{cidr}"
+          "on-click": "foot --title ~nmtui nmtui"
     },
-     "custom/nmtui": {
-         "format": "  ",
-         "tooltip": "NetworkManager",
-         "on-click": "foot --title ~nmtui nmtui"
-     },
      "custom/clock": {
-         "interval": 1,
-         "exec": "date \"+%Y-%m-%d %H:%M:%S\""
+          "interval": 1,
+          "on-click": "foot --title ~khal khal interactive",
+          "exec": "date \"+%Y-%m-%d %H:%M:%S\""
      },
      "battery": {
           "format": "{capacity}% {icon}",
-          "format-icons": ["", "", "", "", ""]
+          "format-icons": ["", "", "", "", ""],
+          "on-click": "tlpui"
      }
 }

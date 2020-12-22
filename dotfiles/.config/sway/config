@@ -210,6 +210,7 @@ for_window [window_type="dialog"] floating enable
 for_window [title="~nwggrid"] floating enable
 for_window [title="~nwgbar"] floating enable
 for_window [title="~nmtui"] floating enable
+for_window [title="~khal"] floating enable
 
 #
 # Scratchpad:
@@ -297,7 +298,6 @@ mode $power_mode {
 # Manual autostart non graphical
 exec --no-startup-id autotiling
 exec --no-startup-id appimagelauncherd
-exec --no-startup-id nm-tray
 exec --no-startup-id nextcloud
 exec --no-startup-id foot -s
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/ukui-polkit/polkit-ukui-authentication-agent-1
