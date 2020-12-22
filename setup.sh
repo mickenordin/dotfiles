@@ -11,6 +11,12 @@ GREETDENVS="/etc/greetd/environments"
 SWAYRUN="/usr/local/bin/sway-run.sh"
 WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
 
+# Add repo for tlpnuisudo 
+curl 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x1cc3d16e460a94ee17fe581cea8cacc073c3db2a' | sudo apt-key add -
+echo 'deb http://ppa.launchpad.net/linuxuprising/apps/ubuntu focal main 
+deb-src http://ppa.launchpad.net/linuxuprising/apps/ubuntu focal main
+' | sudo tee etc/apt/sources.list.d/linuxuprising-apps.list
+sudo apt update
 # Install software from repo
 sudo apt install \
     acpi \
@@ -20,8 +26,6 @@ sudo apt install \
     cargo \
     cheese \
     cmake \
-    cpufreqd \
-    cpufrequtils \
     curl \
     elinks \
     file-roller \
@@ -31,7 +35,6 @@ sudo apt install \
     git \
     gnome-themes-extra \
     jq \
-    laptop-mode-tools \
     libcairo-dev  \
     libdbus-1-dev \
     libgtkmm-3.0-dev \
@@ -69,6 +72,8 @@ sudo apt install \
     scdoc \
     sway \
     swayidle \
+    tlp \
+    tlpui \
     ukui-polkit \
     unzip \
     wayland-protocols \
