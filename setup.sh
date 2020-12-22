@@ -11,12 +11,20 @@ GREETDENVS="/etc/greetd/environments"
 SWAYRUN="/usr/local/bin/sway-run.sh"
 WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
 
+# Add linux-libre repo
+wget -O - 'https://jxself.org/gpg.asc' | sudo apt-key add -
+echo 'deb mirror://linux-libre.fsfla.org/pub/linux-libre/freesh/mirrors.txt freesh main
+' | sudo tee /etc/apt/sources.list.d/linux-libre.list
+
 # Add repo for tlpnuisudo 
-curl 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x1cc3d16e460a94ee17fe581cea8cacc073c3db2a' | sudo apt-key add -
+wget -O - 'https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x1cc3d16e460a94ee17fe581cea8cacc073c3db2a' | sudo apt-key add -
 echo 'deb http://ppa.launchpad.net/linuxuprising/apps/ubuntu focal main 
 deb-src http://ppa.launchpad.net/linuxuprising/apps/ubuntu focal main
-' | sudo tee etc/apt/sources.list.d/linuxuprising-apps.list
+' | sudo tee /etc/apt/sources.list.d/linuxuprising-apps.list
+
+# Update repos
 sudo apt update
+
 # Install software from repo
 sudo apt install \
     acpi \
@@ -51,6 +59,7 @@ sudo apt install \
     libxcb1-dev \
     libxkbcommon-dev \
     light \
+    linux-libre \
     lxappearance \
     meson \
     mpv \
