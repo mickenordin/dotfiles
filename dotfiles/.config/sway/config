@@ -300,6 +300,7 @@ exec --no-startup-id autotiling
 exec --no-startup-id appimagelauncherd
 exec --no-startup-id nextcloud
 exec --no-startup-id foot -s
+exec --no-startup-id ~/.config/sway/bin/battery.sh
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/ukui-polkit/polkit-ukui-authentication-agent-1
 # Manual autostart graphical
 exec foot /usr/bin/fish

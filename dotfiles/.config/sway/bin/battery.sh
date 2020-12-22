@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
-# I run this in crontab every five minutes
 
 warning=10
 error=5
 
-battery_percent="$(cat /sys/class/power_supply/BAT0/capacity)"
-
-if [[ ${battery_percent} -gt ${warning} ]]; then
-    exit 0
-fi
-if [[ ${battery_percent} -lt ${warning} ]]; then
-    mtype="warning"
-fi
-if [[ ${battery_percent} -lt ${error} ]]; then
-    mtype="error"
-fi
-swaynag -s "Dismiss" -e bottom -t ${mtype} -m "WARNING: Battery at ${battery_percent}%"
+while true; do
+    battery_status=$(cat /sys/class/power_supply/BAT0/status)
+    battery_percent=$(cat /sys/class/power_supply/BAT0/capacity)
+    if [[ "${battery_status}" == "Discharging" ]] &&  [[ ${battery_percent} -lt ${warning} ]]; then
+        mtype="warning"
+        if [[ ${battery_percent} -lt ${error} ]]; then
+            mtype="error"
+        fi
+        /usr/bin/swaynag -o eDP-1 -s "Dismiss" -e bottom -t ${mtype} -m "${mtype^^}: Battery at ${battery_percent}%"
+    fi
+    sleep 60
+done
 exit 0
