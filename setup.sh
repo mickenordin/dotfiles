@@ -75,7 +75,6 @@ sudo apt install \
     neovim \
     nextcloud-desktop \
     ninja-build \
-    nm-tray \
     pandoc \
     pass \
     pavucontrol \
