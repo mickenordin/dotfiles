@@ -11,6 +11,10 @@ GREETDENVS="/etc/greetd/environments"
 SWAYRUN="/usr/local/bin/sway-run.sh"
 WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
 
+# Add my own repo
+wget -O - 'https://repo.mic.ke/PUBLIC.KEY' | sudo apt-key add -
+wget -O - 'https://repo.mic.ke/debian/debian-micke-unstable.list' | sudo tee /etc/apt/sources.list.d/debian-micke-unstable.list
+
 # Add linux-libre repo
 wget -O - 'https://jxself.org/gpg.asc' | sudo apt-key add -
 echo 'deb  https://mirror.linux.pizza/linux-libre/freesh/ freesh main
@@ -91,6 +95,7 @@ sudo apt install \
     scdoc \
     sway \
     swayidle \
+    swayswitch \
     system76-firmware-daemon \
     system76-power \
     tlp \

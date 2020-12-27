@@ -101,8 +101,6 @@ bindsym $mod+Shift+c kill
 
 # Start your launchers
 bindsym $mod+d exec $menu
-bindsym $mod+g exec nwggrid -l sv
-bindsym $mod+q exec nwgbar -s 90
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
