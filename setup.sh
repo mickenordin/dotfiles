@@ -86,6 +86,7 @@ sudo apt install \
     pass \
     pavucontrol \
     pcmanfm \
+    pipewire \
     poppler-utils \
     python3-pip \
     python3-tldextract \
