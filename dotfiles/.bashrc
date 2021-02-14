@@ -112,4 +112,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-PATH="${PATH}:~/.emacs.d/bin"
+PATH="${PATH}:~/.local/bin"
+export GTK_THEME=Adwaita:dark
+export XDG_CURRENT_DESKTOP=sway
+source "$HOME/.cargo/env"

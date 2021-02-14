@@ -10,6 +10,7 @@ GREETDCONFIG="/etc/greetd/config.toml"
 GREETDENVS="/etc/greetd/environments"
 SWAYRUN="/usr/local/bin/sway-run.sh"
 WAYLAND_ENABLE="/usr/local/bin/wayland_enablement.sh"
+GTK_THEME=Adwaita:dark
 
 # Add my own repo
 wget -O - 'https://repo.mic.ke/PUBLIC.KEY' | sudo apt-key add -
@@ -62,8 +63,10 @@ sudo apt install \
     libncursesw5-dev \
     libpam-dev \
     libpam0g-dev \
+    libpipewire-0.3-dev \
     libpulse-dev \
     libssl-dev \
+    libsystemd-dev \
     libwayland-dev \
     libxcb-render0-dev \
     libxcb-shape0-dev \
@@ -219,6 +222,14 @@ cd ncspot
 cargo build --release
 sudo cp target/release/ncspot /usr/local/bin/
 
+# xdg-desktop-portal-wlr
+cd ~/sources
+git clone https://github.com/emersion/xdg-desktop-portal-wlr
+cd xdg-desktop-portal-wlr
+meson build
+ninja -C build
+sudo ninja -C build install
+
 # Vdirsyncer
 cd ~/sources
 git clone https://github.com/pimutils/vdirsyncer
@@ -252,6 +263,12 @@ unzip VictorMono.zip
 sudo cp *tf /usr/local/share/fonts
 cd ..
 rm -rf fonts
+
+# Set up GTK_THEME
+grep GTK_THEME /etc/environment
+if [[$? != 0]];
+    echo "GTK_THEME=${GTK_THEME}" | sudo tee -a /etc/environment
+fi
 
 #lsd
 wget https://github.com/Peltoche/lsd/releases/download/0.19.0/lsd-musl_0.19.0_amd64.deb
