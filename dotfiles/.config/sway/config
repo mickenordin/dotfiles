@@ -14,7 +14,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term footclient -t xterm /usr/bin/fish
+set $term foot -t xterm /usr/bin/fish
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -37,9 +37,8 @@ output * bg /usr/local/share/backgrounds/night-landscape.jpg fill
 #
 # Example configuration:
 #
-output eDP-1 resolution 1920x1080 position 0,0
-output HDMI-A-1 resolution 1920x1080 position 1920,0
-output DP-1 resolution 2540x1460 position 3840,0
+output DP-1 resolution 3440x1440 position 0,0
+output eDP-1 resolution 1920x1080 position 3440,0
 
 # Gaps
 smart_gaps on
@@ -144,10 +143,10 @@ bindsym $mod+Shift+Right move right
 #bindsym $mod+Control+Right move workspace to output HDMI-A-1
 #bindsym $mod+Control+Left move workspace to output eDP-1
 # Switch to workspace
-bindsym $mod+1 workspace number 1:
+bindsym $mod+1 workspace number 1:爵
 bindsym $mod+2 workspace number 2:爵
-bindsym $mod+3 workspace number 3:
-bindsym $mod+4 workspace number 4:
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
 bindsym $mod+6 workspace number 6
 bindsym $mod+7 workspace number 7
@@ -155,10 +154,10 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1:
-bindsym $mod+Shift+2 move container to workspace number 2:爵
-bindsym $mod+Shift+3 move container to workspace number 3:
-bindsym $mod+Shift+4 move container to workspace number 4:
+bindsym $mod+Shift+1 move container to workspace number 1:爵
+bindsym $mod+Shift+2 move container to workspace number 2:
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
 bindsym $mod+Shift+6 move container to workspace number 6
 bindsym $mod+Shift+7 move container to workspace number 7
@@ -167,6 +166,8 @@ bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
+workspace 1:爵 output DP-1
+workspace 2: output eDP-1
 #
 # Layout stuff:
 #
@@ -192,6 +193,12 @@ bindsym $mod+space focus mode_toggle
 
 # Move focus to the parent container
 bindsym $mod+a focus parent
+
+# Screenshot functionality by grimshot
+bindsym $mod+p       exec grimshot save active
+bindsym $mod+Shift+p exec grimshot save area
+bindsym $mod+Mod1+p  exec grimshot save output
+bindsym $mod+Ctrl+p  exec grimshot save window
 
 # Floating windows
 for_window [window_role="pop-up"] floating enable
@@ -292,8 +299,14 @@ mode $power_mode {
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Adwaita:dark'
+}
 
 # Manual autostart non graphical
+exec --no-startup-id xmodmap  ~/.Xmodmap
 exec --no-startup-id autotiling
 exec --no-startup-id appimagelauncherd
 exec --no-startup-id nextcloud
@@ -301,14 +314,12 @@ exec --no-startup-id foot -s
 exec --no-startup-id ~/.config/sway/bin/battery.sh
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/ukui-polkit/polkit-ukui-authentication-agent-1
 # Manual autostart graphical
-exec foot /usr/bin/fish
-for_window [class="foot"] move to workspace 1:
-exec qutebrowser
-for_window [class="qutebrowser"] move to workspace 2:爵
-exec foot --title ncspotterm /usr/bin/fish -c ncspot
-for_window [title="ncspotterm"] move to workspace 3:
-exec foot --title neomutt /usr/bin/fish -c neomutt
-for_window [title="neomutt"] move to workspace 4:
+exec firefox
+for_window [class="Firefox"] move to workspace 1:爵
+exec foot --title myterm /usr/bin/fish
+for_window [title="myterm"] move to workspace 1:爵
+exec thunderbird
+for_window [class="thunderbird"] move to workspace 2:
 
 # Autostart from autostart stuff here
 exec ~/.config/sway/bin/refresh_autostart.sh
