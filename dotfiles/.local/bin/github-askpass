@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-echo password=$(/usr/bin/pass show github.com/micke-apinyckel | head -1)
